@@ -1,2 +1,2 @@
-# SoftwareProject
-Project for Software Engineering 4306.
+# Software Project 4306
+
