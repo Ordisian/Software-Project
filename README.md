@@ -21,4 +21,4 @@ N/A
 - FireBase
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE.txt](LICENSE) file for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE.txt) for details.
