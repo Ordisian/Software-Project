@@ -3,13 +3,14 @@
 ### Helping U Strive To Live Empowered
 
 ## Description
-H.U.S.T.L.E. is a lightweight, gamified wellness app that encourages users to build and maintain healthy habits like exercise, hydration, meditation, etc... The app rewards users with points, badges, and simple in-app rewards and allows users to compete with others to keep them motivated.
+H.U.S.T.L.E. is a lightweight, gamified wellness app encouraging users to develop healthy habits and complete personal goals. 
+To keep users motivated, the app rewards them with points, badges, and simple in-app rewards upon completing challenges or goals.
 
 ## Features
-- Track workouts and daily activities.
-- Earn points and unlock rewards.
+- Track workouts, daily activities, and goals.
 - Compete with friends on leaderboards.
-- Join or create challenges and earn badges.
+- Join or create challenges.
+- Earn points and unlock rewards.
 - Customize your avatar with in-app currency.
 
 ## Screenshots
