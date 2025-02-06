@@ -1,0 +1,259 @@
+[gd_scene load_steps=26 format=3 uid="uid://bwftcqhqqdqgs"]
+
+[ext_resource type="Shader" path="res://resources/Shaders/background.gdshader" id="1_f0tyc"]
+[ext_resource type="Script" path="res://Scripts/tab_bar_controller.gd" id="2_1mypq"]
+[ext_resource type="ButtonGroup" uid="uid://mrqr5txlx81k" path="res://resources/TabBarButtonGroup.tres" id="3_bdhgf"]
+[ext_resource type="Texture2D" uid="uid://clhmpqx4b6lsr" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Gear@0.5x.png" id="4_phw3d"]
+[ext_resource type="Texture2D" uid="uid://bjjlltse6nnve" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Cart@0.5x.png" id="5_ffkpk"]
+[ext_resource type="Texture2D" uid="uid://4cddg675785e" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Star@0.5x.png" id="6_xvioc"]
+[ext_resource type="Texture2D" uid="uid://dq0qndpgm8ff4" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Home@0.5x.png" id="7_2g73g"]
+[ext_resource type="Texture2D" uid="uid://cmb7aay3jsjo2" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Multiplayer@0.5x.png" id="8_2s5rr"]
+[ext_resource type="Texture2D" uid="uid://bfgbr7xfj52x6" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Player@0.5x.png" id="9_6yqxc"]
+[ext_resource type="PackedScene" uid="uid://bpatpfryvw57a" path="res://Scenes/shop_tab.tscn" id="10_ciqdt"]
+[ext_resource type="PackedScene" uid="uid://0ihl1wuqqm1a" path="res://Scenes/goals_tab.tscn" id="11_pb5tt"]
+[ext_resource type="PackedScene" uid="uid://cfclvpy3uai15" path="res://Scenes/home_tab.tscn" id="12_4xpuy"]
+[ext_resource type="PackedScene" uid="uid://y56qlcabnwmd" path="res://Scenes/social_tab.tscn" id="13_13wng"]
+[ext_resource type="PackedScene" uid="uid://dt0sk3hy0jurv" path="res://Scenes/profile_tab.tscn" id="14_old1h"]
+[ext_resource type="PackedScene" uid="uid://c3xstc84m0enc" path="res://Scenes/settings_tab.tscn" id="15_4dng7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nvokw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1q4or"]
+shader = ExtResource("1_f0tyc")
+shader_parameter/bottom_color = Color(0.254902, 0.337255, 0.403922, 1)
+shader_parameter/top_color = Color(1, 0.592157, 0, 1)
+shader_parameter/wave_amp = 0.5
+shader_parameter/wave_size = 1.0
+shader_parameter/wave_time_mul = 0.527
+shader_parameter/total_phases = 8
+
+[sub_resource type="Gradient" id="Gradient_qhjyp"]
+colors = PackedColorArray(0.254902, 0.337255, 0.403922, 1, 0.254902, 0.337255, 0.403922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hkbrk"]
+gradient = SubResource("Gradient_qhjyp")
+width = 320
+height = 568
+
+[sub_resource type="Gradient" id="Gradient_1wkwm"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.168627, 0.231373, 0.282353, 1, 0.254902, 0.337255, 0.403922, 1, 0.169784, 0.231526, 0.281437, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x14cv"]
+gradient = SubResource("Gradient_1wkwm")
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bjso"]
+size = Vector2(40, 40)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_miats"]
+gradient = SubResource("Gradient_1wkwm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbopr"]
+size = Vector2(60, 60)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcibg"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nvokw")
+
+[node name="TextureRect" type="TextureRect" parent="Background/PanelContainer"]
+material = SubResource("ShaderMaterial_1q4or")
+layout_mode = 2
+texture = SubResource("GradientTexture2D_hkbrk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TabBarController" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("2_1mypq")
+
+[node name="Headerbar" type="TextureRect" parent="CanvasLayer/TabBarController"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 46.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_x14cv")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TabBarController/Headerbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer"]
+layout_mode = 2
+
+[node name="Points" type="Label" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Points:"
+
+[node name="PointsValue" type="Label" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="Title" type="Label" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "H.U.S.T.L.E."
+
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("4_phw3d")
+
+[node name="SettingsButton" type="TouchScreenButton" parent="CanvasLayer/TabBarController/Headerbar/MarginContainer/SettingsButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_5bjso")
+
+[node name="TabBar" type="TextureRect" parent="CanvasLayer/TabBarController"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_miats")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabBarController/TabBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="ShopButton" type="TextureButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("5_ffkpk")
+
+[node name="ShopButtonTouch" type="TouchScreenButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer/ShopButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_gbopr")
+
+[node name="GoalsButton" type="TextureButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("6_xvioc")
+
+[node name="GoalsButtonTouch" type="TouchScreenButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer/GoalsButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_gbopr")
+
+[node name="HomeButton" type="TextureButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("7_2g73g")
+
+[node name="HomeButtonTouch" type="TouchScreenButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer/HomeButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_gbopr")
+
+[node name="SocialButton" type="TextureButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("8_2s5rr")
+
+[node name="SocialButtonTouch" type="TouchScreenButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer/SocialButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_gbopr")
+
+[node name="ProfileButton" type="TextureButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("3_bdhgf")
+texture_normal = ExtResource("9_6yqxc")
+
+[node name="ProfileButtonTouch" type="TouchScreenButton" parent="CanvasLayer/TabBarController/TabBar/HBoxContainer/ProfileButton" groups=["TouchScreenButtons"]]
+position = Vector2(14, 15)
+shape = SubResource("RectangleShape2D_gbopr")
+
+[node name="TabPanelContainer" type="PanelContainer" parent="CanvasLayer/TabBarController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.08
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.559998
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mcibg")
+
+[node name="ShopTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("10_ciqdt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GoalsTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("11_pb5tt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HomeTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("12_4xpuy")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SocialTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("13_13wng")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProfileTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("14_old1h")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SettingsTab" parent="CanvasLayer/TabBarController/TabPanelContainer" instance=ExtResource("15_4dng7")]
+unique_name_in_owner = true
+layout_mode = 2

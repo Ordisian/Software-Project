@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ihl1wuqqm1a"]
+
+[ext_resource type="Script" path="res://Scripts/goals.gd" id="1_v721i"]
+[ext_resource type="LabelSettings" uid="uid://bplvgpto60dmn" path="res://resources/LabelSettings.tres" id="2_3br64"]
+[ext_resource type="Texture2D" uid="uid://bqruhhoq7geab" path="res://Images/Ui/Prinbles_YetAnotherIcons (beta) (9_7_2023)/png@0.5x/White-Icon/Cross@0.5x.png" id="3_1jadx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcibg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64yu1"]
+size = Vector2(180, 40)
+
+[node name="GoalsTab" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mcibg")
+script = ExtResource("1_v721i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GoalsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Goals"
+label_settings = ExtResource("2_3br64")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NewGoalButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_1jadx")
+stretch_mode = 3
+
+[node name="NewGoalTouch" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/NewGoalButton"]
+unique_name_in_owner = true
+position = Vector2(81, 14)
+shape = SubResource("RectangleShape2D_64yu1")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ADD NEW GOAL!"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GoalsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NewGoalPopUp" type="ConfirmationDialog" parent="."]
+title = "New Goal Name"
+
+[node name="NewGoalInput" type="LineEdit" parent="NewGoalPopUp"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0
