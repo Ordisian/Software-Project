@@ -18,24 +18,23 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mcibg")
 script = ExtResource("1_v721i")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 
-[node name="Spacer" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="GoalsLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Goals"
-label_settings = ExtResource("2_3br64")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="NewGoalButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="NewGoalButton" type="TextureButton" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -43,23 +42,40 @@ size_flags_vertical = 4
 texture_normal = ExtResource("3_1jadx")
 stretch_mode = 3
 
-[node name="NewGoalTouch" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/NewGoalButton"]
+[node name="NewGoalTouch" type="TouchScreenButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/NewGoalButton"]
 unique_name_in_owner = true
 position = Vector2(81, 14)
 shape = SubResource("RectangleShape2D_64yu1")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "ADD NEW GOAL!"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GoalsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GoalsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
+
+[node name="GoalsLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GoalsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Goals"
+label_settings = ExtResource("2_3br64")
+
+[node name="FinishedGoalsLabel" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GoalsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Finished Goals"
+label_settings = ExtResource("2_3br64")
 
 [node name="NewGoalPopUp" type="ConfirmationDialog" parent="."]
 title = "New Goal Name"
