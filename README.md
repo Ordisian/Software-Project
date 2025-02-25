@@ -20,6 +20,3 @@ N/A
 ## Technologies Used
 - Godot
 - FireBase
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for details.
