@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HUSTLE"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/authentication.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.254902, 0.337255, 0.403922, 1)
 boot_splash/image="res://Images/Icons/Hustle_Slpash_Icon.png"
@@ -22,8 +22,7 @@ boot_splash/minimum_display_time=1500
 
 [autoload]
 
-UserInfo="*res://Scripts/Global/UserInfo.gd"
-Settings="*res://Scripts/Global/Settings.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -32,6 +31,10 @@ window/size/viewport_height=568
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [global_group]
 
@@ -44,3 +47,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
