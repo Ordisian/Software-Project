@@ -23,6 +23,7 @@ boot_splash/minimum_display_time=1500
 [autoload]
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+UserData="*res://Scripts/Globals/UserData.gd"
 
 [display]
 

@@ -65,6 +65,7 @@ func _ready() -> void:
 	Firebase.Auth.login_failed.connect(on_login_failed)
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	
+	# Check if "Remember Me" was enabled
 	if Firebase.Auth.check_auth_file():
 		status.text = "Logged In!"
 		switch_to_hustle()
@@ -83,6 +84,9 @@ func on_login_failed(error_code, message) -> void:
 func on_signup_succeeded(auth) -> void:
 	print(auth)
 	status.text = "Sign Up Succeeded!"
+	
+	UserData.first_time_opening_hustle = true
+	
 	switch_to_hustle()
 
 func on_signup_failed(error_code, message) -> void:
@@ -132,8 +136,12 @@ func _on_login_show_password_button_toggled(toggled_on: bool) -> void:
 
 func _on_login_remember_me_toggled(toggled_on: bool) -> void:
 	# Implement "Remember Me" functionality here
+	#UserData.remember_login = toggled_on
+	#UserData.save_data()
 	pass
 
 func _on_signup_remember_me_toggled(toggled_on: bool) -> void:
 	# Implement "Remember Me" functionality here
+	#UserData.remember_login = toggled_on
+	#UserData.save_data()
 	pass

@@ -164,7 +164,7 @@ position = Vector2(160, 284)
 [node name="Timers" type="Node" parent="."]
 
 [node name="AutoSave" type="Timer" parent="Timers"]
-wait_time = 30.0
+wait_time = 10.0
 
 [connection signal="pressed" from="Panels/Log Out" to="Panels/Log Out" method="_on_pressed"]
 [connection signal="timeout" from="Timers/AutoSave" to="." method="_on_auto_save_timeout"]
