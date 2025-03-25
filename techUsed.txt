@@ -1,0 +1,14 @@
+
+nodejs -> https://nodejs.org/en
+
+electron -> npm install electron
+
+node-schedule -> npm install node-schedule
+
+play-sound -> npm install play-sound
+
+mixkit -> https://mixkit.co/free-sound-effects/notification/
+
+google fonts icons -> https://fonts.google.com/icons
+
+coolers -> https://coolors.co/

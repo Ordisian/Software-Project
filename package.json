@@ -1,0 +1,17 @@
+{
+  "name": "notify",
+  "version": "1.0.0",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron": "^35.0.2",
+    "node-schedule": "^2.1.1",
+    "play-sound": "^1.1.6",
+    "uuid": "^11.1.0"
+  }
+}

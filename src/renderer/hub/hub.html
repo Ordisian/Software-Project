@@ -1,0 +1,68 @@
+
+<!-- hub.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reMind Hub</title>
+    <link rel="stylesheet" href="./hub.css">
+</head>
+<body class="hub-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-create-container">
+            <button id="add-folder-button" class="sidebar-button">Folder</button>
+            <button id="add-note-button" class="sidebar-button">Note</button>
+        </div>
+        <div class="sidebar-section">
+            <h4>Recent Notes</h4>
+        </div>
+        <div class="sidebar-section">
+            <h4>Pinned Folders</h4>
+        </div>
+        <div class="sidebar-section">
+            <h4>Pinned Notes</h4>
+        </div>
+    </aside>
+
+    <!-- Header -->
+    <header class="hub-header">
+        <h1 class="hub-title">reMind Hub</h1>
+        <input type="text" id="search-bar" placeholder="Search notes..." class="search-bar">
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Note List -->
+        <ul class="note-list" id="note-list">
+            <!-- Notes and folders will be dynamically added here -->
+        </ul>
+    </main>
+
+    <!-- Input Modal (for adding/renaming) -->
+    <div id="input-modal" class="modal">
+        <div id="input-modal-content" class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title">Enter Name</h2>
+            <input type="text" id="input-field" placeholder="Enter name...">
+            <button id="submit-button">Submit</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal (for deletion) -->
+    <div id="confirm-modal" class="modal">
+        <div id="confirm-modal-content" class="modal-content">
+            <span id="close-confirm-modal" class="close">&times;</span>
+            <h2 id="confirm-modal-title">Confirm Deletion</h2>
+            <p id="confirm-modal-message">Are you sure you want to delete this item?</p>
+            <button id="confirm-delete-button">Delete</button>
+            <button id="cancel-delete-button">Cancel</button>
+        </div>
+    </div>
+
+    <script src="hub.js"></script>
+</body>
+</html>

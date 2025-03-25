@@ -1,0 +1,22 @@
+3dot menu
+ - drop down
+ - delete
+ - move-to (folder)
+
+reminder
+ - implement a working function... ipcHandlers implementation does not work
+ - and a stats page for habits
+
+note
+ - need a check box for "must complete" which will make the window pop-up with a modal. checking this will add to the stats
+ - note preview
+
+folder
+ - folder preview
+ - nested folders aren't working
+   - either disallow them or find a work around
+
+search bar
+
+side bar
+ - add dropdown for the sections

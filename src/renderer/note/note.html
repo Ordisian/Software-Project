@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Note</title>
+    <link rel="stylesheet" href="./note.css">
+
+    <style>
+        body {
+          position: relative;
+        }
+    </style>
+</head>
+<body class="note-body">
+    <header class="note-header">
+        <button id="hub-button" class="hub-button">Hub</button>
+        <h1 id="header-title" class="header-title">Untitled Note</h1>
+        <button id="close-button" class="close-button">+</button>
+    </header>
+    
+    <div class="note-content">
+        <textarea id="text" placeholder="Type your note here..."></textarea>
+    </div>
+
+    <!-- Reminder Controls -->
+    <div class="reminder-controls">
+        <div class="reminder-row">
+            <span class="reminder-label">Time:</span>
+            <input type="time" class="time-input" id="reminder-time">
+        </div>
+        <div class="reminder-row">
+            <span class="reminder-label">Repeat:</span>
+            <div class="day-selector">
+                <button class="day-button" data-day="0">S</button>
+                <button class="day-button" data-day="1">M</button>
+                <button class="day-button" data-day="2">T</button>
+                <button class="day-button" data-day="3">W</button>
+                <button class="day-button" data-day="4">T</button>
+                <button class="day-button" data-day="5">F</button>
+                <button class="day-button" data-day="6">S</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="note.js"></script>
+</body>
+</html>
