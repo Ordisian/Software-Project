@@ -18,7 +18,7 @@ Follow these steps to set up the project:
 1. Clone the repository:
     ```bash
     git clone https://github.com/Ordisian/Software-Project.git
-    cd sticky-note-app
+    cd software-project
     ```
 
 2. Install dependencies:
