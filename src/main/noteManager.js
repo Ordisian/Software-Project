@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const { app } = require('electron');
 const { v4: uuidv4 } = require('uuid');
 
 const dataPath = path.join(__dirname, '../../data');
-const saveDataPath = path.join(dataPath, 'saveData.json');
+const saveDataPath = path.join(app.getPath('userData'), 'saveData.json');
 let notes = [];
 
 // Initialize data directory
@@ -13,31 +14,53 @@ if (!fs.existsSync(dataPath)) {
 
 // Save with metadata
 function saveNotes() {
-    const data = {
-      version: "1.0",
-      createdAt: new Date().toISOString(),
-      lastModified: new Date().toISOString(),
-      data: notes
-    };
-    fs.writeFileSync(saveDataPath, JSON.stringify(data, null, 2), 'utf-8');
+    try {
+        const data = {
+            version: "1.0",
+            createdAt: new Date().toISOString(),
+            lastModified: new Date().toISOString(),
+            data: notes
+        };
+  
+        // Ensure directory exists
+        const dir = path.dirname(saveDataPath);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+  
+        // Write to file
+        fs.writeFileSync(saveDataPath, JSON.stringify(data, null, 2), 'utf-8');
+        console.log(`Notes saved to ${saveDataPath}`);
+    }   catch (error) {
+            console.error('Error saving notes:', error);
+    }
 }
   
 // Load with validation
 function loadNotes() {
     if (!fs.existsSync(saveDataPath)) {
-      notes = [];
-      return [];
+        console.warn("No save file found. Starting with an empty notes array.");
+        notes = [];
+        return [];
     }
   
     try {
-      const rawData = fs.readFileSync(saveDataPath, 'utf-8');
-      const { data } = JSON.parse(rawData);
-      notes = Array.isArray(data) ? data : [];
+        const rawData = fs.readFileSync(saveDataPath, 'utf-8');
+        const parsedData = JSON.parse(rawData);
+  
+        // Validate data format
+        if (!Array.isArray(parsedData.data)) {
+            throw new Error("Invalid data format: Expected an array of notes.");
+        }
+  
+        notes = parsedData.data;
+        console.log(`Loaded ${notes.length} notes from ${saveDataPath}`);
+        return notes;
     } catch (error) {
-      console.error("Error loading notes:", error);
-      notes = [];
+        console.error(`Error loading notes from ${saveDataPath}:`, error);
+        notes = [];
+        return [];
     }
-    return notes;
 }
 
 function findItemById(items, targetId) {

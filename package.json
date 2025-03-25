@@ -1,17 +1,21 @@
 {
-  "name": "notify",
+  "name": "remind",
   "version": "1.0.0",
   "main": "src/main/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A simple sticky note desktop app built with Electron.",
   "dependencies": {
-    "electron": "^35.0.2",
     "node-schedule": "^2.1.1",
     "play-sound": "^1.1.6",
     "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "electron": "^35.0.3",
+    "electron-builder": "^25.1.8"
   }
 }
