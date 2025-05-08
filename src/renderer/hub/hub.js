@@ -180,6 +180,8 @@ function showMenu(event, item) {
     
     const menu = document.createElement('div');
     menu.className = 'menu-options three-dot-menu-content'; // Added both classes
+	
+	menu.classList.add('show');
     
     // Rename option
     const renameOption = document.createElement('div');
