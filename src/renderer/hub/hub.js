@@ -232,6 +232,7 @@ document.getElementById('add-folder-button').addEventListener('click', () => {
         ipcRenderer.send('add-folder', { folderName, parentFolderId: selectedFolderId });
     });
 });
+
 // Search filter
 document.getElementById('search-bar').addEventListener('input', function () {
     const query = this.value.toLowerCase();
@@ -246,6 +247,7 @@ document.getElementById('search-bar').addEventListener('input', function () {
         }
     });
 });
+
 // Add Note Button
 document.getElementById('add-note-button').addEventListener('click', () => {
     showInputModal('Enter Note Title', (noteTitle) => {
