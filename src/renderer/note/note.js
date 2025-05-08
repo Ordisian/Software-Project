@@ -4,6 +4,7 @@ let noteId = null;
 let noteContent = '';
 let saveTimeout = null;
 let selectedDays = new Set();
+let notes = [];
 
 Notification.requestPermission().then(permission => {
     if (permission !== 'granted') {
