@@ -186,15 +186,15 @@
   }
 	  /* Delete Button Styles */
 	.delete-button {
-		background: none;
-		border: none;
-		color: #ff5252; /* Red color for delete */
-		cursor: pointer;
-		font-size: 14px;
-		padding: 6px 12px;
-		border-radius: var(--border-radius);
-		transition: var(--transition);
-	}
+    background: none;
+    border: 1px solid red; 
+    color: #ff5252;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
 
 	.delete-button:hover {
 		color: white;
