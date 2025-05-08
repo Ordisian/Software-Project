@@ -248,7 +248,11 @@ main {
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     min-width: 80px;
     font-size: 11px;
-    display: none;
+    display: none; /* Initially hidden */
+}
+
+.menu-options.show {
+    display: block; /* Show when the 'show' class is added */
 }
 
 .menu-options div {
@@ -259,7 +263,6 @@ main {
 .menu-button.active + .menu-options {
     display: block;
 }
-
 /* ============= */
 /* Modals */
 /* ============= */
