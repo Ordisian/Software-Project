@@ -101,6 +101,16 @@ document.getElementById('hub-button').addEventListener('click', () => {
     ipcRenderer.send('open-hub');
 });
 
+document.getElementById('delete-button').addEventListener('click', () => {
+    const confirmation = confirm('Are you sure you want to delete this note?');
+    if (confirmation) {
+        // Send 'delete-note' message with noteId to the main process
+        ipcRenderer.send('delete-note', noteId);
+        // Close the note window after deletion
+        window.close();
+    }
+});
+
 ipcRenderer.on('trigger-reminder', (event, note) => {
 	// Show system notification
     if (Notification.permission === 'granted') {
