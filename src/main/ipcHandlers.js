@@ -108,6 +108,7 @@ function setupIpcHandlers() {
         }
         NoteManager.deleteItem(id);
         updateHubNoteList();
+		event.sender.send('note-deleted', id);
     });
 
     ipcMain.on('request-note-list', (event) => {
