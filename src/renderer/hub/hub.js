@@ -202,6 +202,18 @@ function showMenu(event, item) {
         menu.remove();
     });
     menu.appendChild(deleteOption);
+	
+	// Move to Folder option
+	const moveToOption = document.createElement('div');
+    moveToOption.textContent = 'Move to Folder';
+    moveToOption.addEventListener('click', () => {
+        // Show a modal or dropdown to select a folder
+        showFolderSelectionModal((selectedFolderId) => {
+            ipcRenderer.send('move-item-to-folder', { itemId: item.id, folderId: selectedFolderId });
+        });
+        menu.remove(); // Close menu after action
+    });
+    menu.appendChild(moveToOption);
     
     // Position the menu near the button
     const buttonRect = event.target.getBoundingClientRect();
