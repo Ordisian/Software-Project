@@ -162,7 +162,8 @@ ipcRenderer.on('update-note-list', (event, notes) => {
         menuButton.className = 'menu-button';
         menuButton.textContent = '⋯'; // 3-dot character
         menuButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent the item from opening
+			console.log("Button clicked!");
+            //e.stopPropagation(); // Prevent the item from opening
             showMenu(e, item);
         });
         li.appendChild(menuButton);
@@ -210,6 +211,12 @@ function showMenu(event, item) {
     menu.style.left = `${buttonRect.right - 120}px`; // Adjust to keep menu visible
     menu.style.top = `${buttonRect.bottom + 5}px`;
 	menu.style.zIndex = '10000';
+	
+	// Adjust positioning to ensure it's always visible
+	menu.style.position = 'fixed';
+    menu.style.left = `${buttonRect.right - menuWidth}px`; // Adjust to keep menu visible
+    menu.style.top = `${buttonRect.bottom + 5}px`; // Add space below the button
+    menu.style.zIndex = '10000'; // Ensure it's on top of other elements
     
     document.body.appendChild(menu);
 	event.stopPropagation();
