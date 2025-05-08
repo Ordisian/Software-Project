@@ -179,9 +179,11 @@ function showMenu(event, item) {
     document.querySelectorAll('.menu-options').forEach(menu => menu.remove());
     
     const menu = document.createElement('div');
-    menu.className = 'menu-options three-dot-menu-content'; // Added both classes
+    menu.classList.add('menu-options', 'three-dot-menu-content', 'show'); // Added both classes
 	
 	menu.classList.add('show');
+	console.log('Menu class after adding show:', menu.className);  // DEBUGGING LINE
+
     
     // Rename option
     const renameOption = document.createElement('div');
