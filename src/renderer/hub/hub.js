@@ -232,7 +232,20 @@ document.getElementById('add-folder-button').addEventListener('click', () => {
         ipcRenderer.send('add-folder', { folderName, parentFolderId: selectedFolderId });
     });
 });
+// Search filter
+document.getElementById('search-bar').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const items = document.querySelectorAll('#note-list .note-item');
 
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query) || item.classList.contains('back-button')) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
 // Add Note Button
 document.getElementById('add-note-button').addEventListener('click', () => {
     showInputModal('Enter Note Title', (noteTitle) => {
