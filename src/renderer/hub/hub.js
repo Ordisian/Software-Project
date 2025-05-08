@@ -173,6 +173,7 @@ ipcRenderer.on('update-note-list', (event, notes) => {
 
 // Function to show the 3-dot menu
 function showMenu(event, item) {
+	console.log("Opening menu for item:", item);
     // Close any existing menus first
     document.querySelectorAll('.menu-options').forEach(menu => menu.remove());
     
@@ -208,8 +209,10 @@ function showMenu(event, item) {
     menu.style.position = 'fixed';
     menu.style.left = `${buttonRect.right - 120}px`; // Adjust to keep menu visible
     menu.style.top = `${buttonRect.bottom + 5}px`;
+	menu.style.zIndex = '10000';
     
     document.body.appendChild(menu);
+	event.stopPropagation();
     
     // Close when clicking outside
     const closeMenu = (e) => {
