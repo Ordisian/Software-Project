@@ -102,6 +102,20 @@ document.getElementById('hub-button').addEventListener('click', () => {
 });
 
 ipcRenderer.on('trigger-reminder', (event, note) => {
+	// Show system notification
+    if (Notification.permission === 'granted') {
+        new Notification(note.title || 'Reminder', {
+            body: note.content || '',
+        });
+    } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification(note.title || 'Reminder', {
+                    body: note.content || '',
+                });
+            }
+        });
+    }
     // Create modal overlay
     const modal = document.createElement('div');
     modal.style.position = 'fixed';
